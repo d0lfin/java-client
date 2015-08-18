@@ -1,5 +1,6 @@
 package io.appium.java_client.pagefactory;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -81,10 +82,27 @@ class AppiumElementLocator implements ElementLocator {
 		String platform = getPlatform();
 		String automation = getAutomation();
 
-		AppiumAnnotations annotations = new AppiumAnnotations(field, platform,
-				automation);
+		AppiumAnnotations annotations = new AppiumAnnotations(field, platform, automation);
         if (field.isAnnotationPresent(WithTimeout.class)){
             WithTimeout withTimeout = field.getAnnotation(WithTimeout.class);
+            this.timeOutDuration = new TimeOutDuration(withTimeout.time(), withTimeout.unit());
+        }
+        else
+		    this.timeOutDuration = timeOutDuration;
+		shouldCache = annotations.isLookupCached();
+		by = annotations.buildBy();
+	}
+
+	<T extends MobileElement> AppiumElementLocator(SearchContext searchContext, Class<T> clazz,
+			TimeOutDuration timeOutDuration) {
+		this.searchContext = searchContext;
+
+		String platform = getPlatform();
+		String automation = getAutomation();
+
+		AppiumAnnotations annotations = new AppiumAnnotations(clazz, platform, automation);
+        if (clazz.isAnnotationPresent(WithTimeout.class)){
+            WithTimeout withTimeout = clazz.getAnnotation(WithTimeout.class);
             this.timeOutDuration = new TimeOutDuration(withTimeout.time(), withTimeout.unit());
         }
         else
