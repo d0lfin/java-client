@@ -38,4 +38,6 @@ public interface CustomCommands {
     Owner getOwner(String path);
     void setOwner(String path, Owner owner);
     void cp(String source, String destination);
+    void startAction(String action, String data);
+    void startAction(String action, String category, String data);
 }

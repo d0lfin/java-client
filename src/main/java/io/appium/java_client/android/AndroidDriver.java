@@ -58,6 +58,7 @@ import static io.appium.java_client.MobileCommand.LIST_FOLDER;
 import static io.appium.java_client.MobileCommand.REMOVE_FOLDER;
 import static io.appium.java_client.MobileCommand.SET_DATE;
 import static io.appium.java_client.MobileCommand.SET_OWNER;
+import static io.appium.java_client.MobileCommand.START_ACTION;
 import static io.appium.java_client.MobileCommand.SWIPE_UP_HOME_BUTTON;
 import static io.appium.java_client.MobileCommand.BROADCAST_INTENT;
 import static io.appium.java_client.MobileCommand.CLEAR_DATA;
@@ -557,4 +558,19 @@ public class AndroidDriver<RequiredElementType extends WebElement> extends Appiu
 		Object[] values = new Object[] { source, destination };
 		execute(CP, getCommandImmutableMap(parameters, values));
 	}
+
+	@Override
+	public void startAction(String action, String category, String data) {
+		String[] parameters = new String[] { "action", "category", "data"};
+		Object[] values = new Object[] { action, category, data };
+		execute(START_ACTION, getCommandImmutableMap(parameters, values));
+	}
+
+	@Override
+	public void startAction(String action, String data) {
+		String[] parameters = new String[] { "action", "data"};
+		Object[] values = new Object[] { action, data };
+		execute(START_ACTION, getCommandImmutableMap(parameters, values));
+	}
+
 }
