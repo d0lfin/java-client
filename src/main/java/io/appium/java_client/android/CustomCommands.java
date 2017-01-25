@@ -5,6 +5,7 @@ import io.appium.java_client.Owner;
 import io.appium.java_client.PackageVersion;
 
 import java.awt.*;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,4 +41,5 @@ public interface CustomCommands {
     void cp(String source, String destination);
     void startAction(String action, String data);
     void startAction(String action, String category, String data);
+    void download(URL url, String destination);
 }

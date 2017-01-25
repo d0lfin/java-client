@@ -47,6 +47,7 @@ import static io.appium.java_client.MobileCommand.ADB_INPUT_TEXT;
 import static io.appium.java_client.MobileCommand.ADB_SWIPE;
 import static io.appium.java_client.MobileCommand.ADB_TAP;
 import static io.appium.java_client.MobileCommand.CP;
+import static io.appium.java_client.MobileCommand.DOWNLOAD;
 import static io.appium.java_client.MobileCommand.GET_DATE;
 import static io.appium.java_client.MobileCommand.GET_DATE_STRING;
 import static io.appium.java_client.MobileCommand.GET_DISPLAY_METRICS;
@@ -573,4 +574,10 @@ public class AndroidDriver<RequiredElementType extends WebElement> extends Appiu
 		execute(START_ACTION, getCommandImmutableMap(parameters, values));
 	}
 
+	@Override
+	public void download(URL url, String destination) {
+		String[] parameters = new String[] { "source", "destination"};
+		Object[] values = new Object[] { url.toString(), destination };
+		execute(DOWNLOAD, getCommandImmutableMap(parameters, values));
+	}
 }

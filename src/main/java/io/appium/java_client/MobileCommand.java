@@ -78,4 +78,5 @@ public interface MobileCommand {
   String GET_OWNER = "getOwner";
   String SET_OWNER = "setOwner";
   String START_ACTION = "startAction";
+  String DOWNLOAD = "download";
 }
