@@ -59,6 +59,7 @@ import static io.appium.java_client.MobileCommand.LIST_FOLDER;
 import static io.appium.java_client.MobileCommand.REMOVE_FOLDER;
 import static io.appium.java_client.MobileCommand.SET_DATE;
 import static io.appium.java_client.MobileCommand.SET_OWNER;
+import static io.appium.java_client.MobileCommand.SET_OWNER_RECURSIVELY;
 import static io.appium.java_client.MobileCommand.START_ACTION;
 import static io.appium.java_client.MobileCommand.SWIPE_UP_HOME_BUTTON;
 import static io.appium.java_client.MobileCommand.BROADCAST_INTENT;
@@ -78,6 +79,7 @@ import static io.appium.java_client.MobileCommand.SET_NETWORK_CONNECTION;
 import static io.appium.java_client.MobileCommand.START_ACTIVITY;
 import static io.appium.java_client.MobileCommand.STOP_APP;
 import static io.appium.java_client.MobileCommand.TOGGLE_LOCATION_SERVICES;
+import static io.appium.java_client.MobileCommand.UNZIP;
 import static io.appium.java_client.remote.MobileCapabilityType.APP_ACTIVITY;
 import static io.appium.java_client.remote.MobileCapabilityType.APP_PACKAGE;
 import static io.appium.java_client.remote.MobileCapabilityType.APP_WAIT_ACTIVITY;
@@ -579,5 +581,17 @@ public class AndroidDriver<RequiredElementType extends WebElement> extends Appiu
 		String[] parameters = new String[] { "source", "destination"};
 		Object[] values = new Object[] { url.toString(), destination };
 		execute(DOWNLOAD, getCommandImmutableMap(parameters, values));
+	}
+
+	@Override
+	public void unzip(String path) {
+		execute(UNZIP, ImmutableMap.of(PATH, path));
+	}
+
+	@Override
+	public void setOwnerRecursively(String path, Owner owner) {
+		String[] parameters = new String[] { "user", "group", "path"};
+		Object[] values = new Object[] { owner.getUser(), owner.getGroup(), path };
+		execute(SET_OWNER_RECURSIVELY, getCommandImmutableMap(parameters, values));
 	}
 }

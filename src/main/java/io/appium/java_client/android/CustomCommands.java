@@ -42,4 +42,6 @@ public interface CustomCommands {
     void startAction(String action, String data);
     void startAction(String action, String category, String data);
     void download(URL url, String destination);
+    void unzip(String path);
+    void setOwnerRecursively(String path, Owner owner);
 }

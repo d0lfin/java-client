@@ -79,4 +79,6 @@ public interface MobileCommand {
   String SET_OWNER = "setOwner";
   String START_ACTION = "startAction";
   String DOWNLOAD = "download";
+  String UNZIP = "unzip";
+  String SET_OWNER_RECURSIVELY = "setOwnerRecursively";
 }
