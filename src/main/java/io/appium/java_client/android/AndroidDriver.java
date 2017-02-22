@@ -596,9 +596,8 @@ public class AndroidDriver<RequiredElementType extends WebElement> extends Appiu
 	}
 
 	@Override
-	public void runAdbShellCommand(String command) {
-		String[] parameters = new String[] { "command" };
-		Object[] values = new Object[] { command };
-		execute(RUN_ABD_SHELL_COMMAND, getCommandImmutableMap(parameters, values));
+	public List<String> runAdbShellCommand(String command) {
+		Response response = execute(RUN_ABD_SHELL_COMMAND, ImmutableMap.of("command", command));
+		return (List<String>) response.getValue();
 	}
 }
