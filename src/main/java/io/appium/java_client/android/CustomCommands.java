@@ -44,4 +44,5 @@ public interface CustomCommands {
     void download(URL url, String destination);
     void unzip(String path);
     void setOwnerRecursively(String path, Owner owner);
+    List<String> runAdbShellCommand(String command);
 }

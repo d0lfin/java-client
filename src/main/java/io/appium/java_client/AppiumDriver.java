@@ -707,6 +707,7 @@ public abstract class AppiumDriver<RequiredElementType extends WebElement> exten
                 .put(SET_OWNER, postC("/session/:sessionId/appium/device/set_owner"))
                 .put(IS_SOFT_KEYBOARD_PRESENT, getC("/session/:sessionId/appium/device/is_soft_keyboard_present"))
 				.put(START_ACTION, postC("/session/:sessionId/appium/device/start_action"))
+				.put(RUN_ABD_SHELL_COMMAND, postC("/session/:sessionId/appium/device/run_adb_shell_command"))
 				.put(DOWNLOAD, postC("/session/:sessionId/appium/device/download"))
 				.put(UNZIP, postC("/session/:sessionId/appium/device/unzip"))
 				.put(SET_OWNER_RECURSIVELY, postC("/session/:sessionId/appium/device/set_owner_recursively"));

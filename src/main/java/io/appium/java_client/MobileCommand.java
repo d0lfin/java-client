@@ -81,4 +81,5 @@ public interface MobileCommand {
   String DOWNLOAD = "download";
   String UNZIP = "unzip";
   String SET_OWNER_RECURSIVELY = "setOwnerRecursively";
+  String RUN_ABD_SHELL_COMMAND = "runAdbShellCommand";
 }

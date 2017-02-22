@@ -38,7 +38,6 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +55,7 @@ import static io.appium.java_client.MobileCommand.GET_OWNER;
 import static io.appium.java_client.MobileCommand.GET_VERSIONS;
 import static io.appium.java_client.MobileCommand.HAS_ROOT;
 import static io.appium.java_client.MobileCommand.LIST_FOLDER;
+import static io.appium.java_client.MobileCommand.RUN_ABD_SHELL_COMMAND;
 import static io.appium.java_client.MobileCommand.REMOVE_FOLDER;
 import static io.appium.java_client.MobileCommand.SET_DATE;
 import static io.appium.java_client.MobileCommand.SET_OWNER;
@@ -593,5 +593,11 @@ public class AndroidDriver<RequiredElementType extends WebElement> extends Appiu
 		String[] parameters = new String[] { "user", "group", "path"};
 		Object[] values = new Object[] { owner.getUser(), owner.getGroup(), path };
 		execute(SET_OWNER_RECURSIVELY, getCommandImmutableMap(parameters, values));
+	}
+
+	@Override
+	public List<String> runAdbShellCommand(String command) {
+		Response response = execute(RUN_ABD_SHELL_COMMAND, ImmutableMap.of("command", command));
+		return (List<String>) response.getValue();
 	}
 }
