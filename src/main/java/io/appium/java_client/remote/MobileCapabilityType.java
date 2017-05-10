@@ -18,31 +18,106 @@ package io.appium.java_client.remote;
 
 import org.openqa.selenium.remote.CapabilityType;
 
+/**
+ * The list of common capabilities.
+ * Read:
+ * https://github.com/appium/appium/blob/1.5/docs/en/
+ * writing-running-appium/caps.md#appium-server-capabilities
+ */
 public interface MobileCapabilityType extends CapabilityType {
-  
+
+  /**
+   * Which automation engine to use.
+   */
   String AUTOMATION_NAME = "automationName";
 
+  /**
+   * Which mobile OS platform to use.
+   */
   String PLATFORM_NAME = "platformName";
+
+  /**
+   * Mobile OS version.
+   */
   String PLATFORM_VERSION = "platformVersion";
 
+  /**
+   * The kind of mobile device or emulator to use.
+   */
   String DEVICE_NAME = "deviceName";
 
+  /**
+   * How long (in seconds) Appium will wait for a new command from the
+   * client before assuming the client quit and ending the session.
+   */
   String NEW_COMMAND_TIMEOUT = "newCommandTimeout";
-  String DEVICE_READY_TIMEOUT = "deviceReadyTimeout";
-  String LAUNCH_TIMEOUT = "launchTimeout";
 
+  /**
+   * The absolute local path or remote http URL to an .ipa or .apk file,
+   * or a .zip containing one of these. Appium will attempt to install this app
+   * binary on the appropriate device first. Note that this capability is not required for
+   * Android if you specify appPackage and appActivity capabilities (see below).
+   * Incompatible with browserName.
+   */
   String APP = "app";
-  String APP_PACKAGE = "appPackage";
-  String APP_ACTIVITY = "appActivity";
-  String APP_WAIT_ACTIVITY = "appWaitActivity";
-  String APP_WAIT_PACKAGE = "appWaitPackage";
-  String DONT_STOP_APP_ON_RESET = "dontStopAppOnReset";
-  String SELENDROID_PORT  = "selendroidPort";
+
+  /**
+   * Name of mobile web browser to automate.
+   * Should be an empty string if automating an app instead.
+   */
+  String BROWSER_NAME = "browserName";
+
+  /**
+   * Unique device identifier of the connected physical device.
+   */
   String UDID = "udid";
 
-  //Sauce-specific
+  /**
+   * Sauce-specific.
+   */
   String APPIUM_VERSION = "appiumVersion";
-  
-  // capability to accept accento on keyboard
-  String UNICODE_KEYBOARD = "unicodeKeyboard";
+
+  /**
+   * (Sim/Emu-only) Language to set for the simulator / emulator.
+   */
+  String LANGUAGE = "language";
+
+  /**
+   * (Sim/Emu-only) Locale to set for the simulator / emulator.
+   */
+  String LOCALE = "locale";
+
+  /**
+   * (Sim/Emu-only) start in a certain orientation.
+   */
+  String ORIENTATION = "orientation";
+
+  /**
+   * Move directly into Webview context. Default false.
+   */
+  String AUTO_WEBVIEW = "autoWebview";
+
+  /**
+   * Don't reset app state before this session. Default false.
+   */
+  String NO_RESET = "noReset";
+
+  /**
+   * (iOS) Delete the entire simulator folder.
+   * (Android) Reset app state by uninstalling app instead of clearing app data.
+   * On Android, this will also remove the app after the session is complete. Default false.
+   */
+  String FULL_RESET = "fullReset";
+
+  /**
+   * The desired capability which specifies whether to delete any generated files at
+   * the end of a session (see iOS and Android entries for particulars).
+   */
+  String CLEAR_SYSTEM_FILES = "clearSystemFiles";
+
+  /**
+   * Enable or disable the reporting of the timings for various Appium-internal events
+   * (e.g., the start and end of each command, etc.). Defaults to false.
+   */
+  String EVENT_TIMINGS = "eventTimings";
 }
