@@ -80,11 +80,11 @@ import static io.appium.java_client.MobileCommand.START_ACTIVITY;
 import static io.appium.java_client.MobileCommand.STOP_APP;
 import static io.appium.java_client.MobileCommand.TOGGLE_LOCATION_SERVICES;
 import static io.appium.java_client.MobileCommand.UNZIP;
-import static io.appium.java_client.remote.MobileCapabilityType.APP_ACTIVITY;
-import static io.appium.java_client.remote.MobileCapabilityType.APP_PACKAGE;
-import static io.appium.java_client.remote.MobileCapabilityType.APP_WAIT_ACTIVITY;
-import static io.appium.java_client.remote.MobileCapabilityType.APP_WAIT_PACKAGE;
-import static io.appium.java_client.remote.MobileCapabilityType.DONT_STOP_APP_ON_RESET;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.APP_ACTIVITY;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.APP_PACKAGE;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.APP_WAIT_ACTIVITY;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.APP_WAIT_PACKAGE;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.DONT_STOP_APP_ON_RESET;
 
 /**
  * @param <RequiredElementType> means the required type from the list of allowed types below 
